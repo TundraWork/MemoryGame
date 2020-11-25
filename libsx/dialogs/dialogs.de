@@ -1,0 +1,34 @@
+#define MAIN_DIAL 0
+Ja
+Abbrech
+Nein
+OK
+Abbrech
+Wieder
+#define POPUP_DIAL 6
+OK
+Abbrech
+Frage
+#define COLSEL_DIAL 9
+[Initiale Farbe]             [Annäherung]
+Setz Farbe
+ Modus
+Liste RGB Werten
+Grab Farbe
+Annäherung
+Akzept
+Abbrech
+#define FREQ_DIAL 17
+Suchpad
+Filter 
+Wählen Datei aus Liste oder schreiben Zeichenfolge
+Datei  
+Geh zu 
+Home
+CWD 
+Such
+Raus
+Abbrech
+OK
+#define NUM_DIAL 28
+

@@ -1,0 +1,33 @@
+#define MAIN_DIAL 0
+Yes
+Cancel 
+No 
+Okay 
+Cancel 
+Retry
+#define POPUP_DIAL 6
+Okay
+Cancel
+Question
+#define COLSEL_DIAL 9
+[initial color]                  [match]
+Set Color
+   Mode
+List of RGB values
+Grab color
+Best match
+Accept
+Cancel
+#define FREQ_DIAL 17
+Path   
+Filter 
+Select a File from the List or Enter a Name
+File   
+Goto   
+Home
+CWD 
+Rescan
+Hide
+Cancel
+Ok
+#define NUM_DIAL 28

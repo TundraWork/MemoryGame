@@ -1,0 +1,12 @@
+#
+# Makefile for the libsx dialogs
+#
+
+SHAREDIR=/usr/share/libsx
+
+install:
+	mkdirhier $(SHAREDIR)
+	cp -f dialogs* $(SHAREDIR)
+
+clean:
+	rm -f *~

@@ -1,0 +1,100 @@
+#
+# Makefile for the libsx library
+#
+
+#
+#  If you have trouble building, edit the file ../libsx_defs and
+# change stuff there.  That file gets included everywhere else, so
+# you only need to change things there once.
+#
+include ../libsx_defs
+
+LIBDIR=/usr/lib
+INCLUDEDIR=/usr/include/X11/SX
+SHAREDIR=/usr/share/libsx
+
+CC=gcc -fPIC
+
+#
+# You shouldn't need to modify anything below here.
+#
+#
+
+LIBSXOBJS  = draw.o toggle.o button.o string_entry.o libsx.o misc.o list.o\
+             font.o scrollbar.o menu.o popups.o colormap.o drawing.o\
+	     dialog.o dirlist.o freq.o grabpix.o colorsel.o version.o
+
+
+OBJS       = main.o callbacks.o
+
+
+
+all : libsx.a libsx.so
+
+libsx.a : $(LIBSXOBJS)
+	rm -f libsx.a
+	ar rc libsx.a $(LIBSXOBJS)
+	$(RANLIB) libsx.a
+
+libsx.so : $(LIBSXOBJS)
+	rm -f libsx.so
+	$(CC) -shared -Wl,-soname,libsx.so draw.o toggle.o \
+	button.o string_entry.o libsx.o misc.o list.o font.o scrollbar.o \
+	menu.o popups.o colormap.o drawing.o dialog.o dirlist.o freq.o \
+	grabpix.o colorsel.o version.o -o libsx.so
+
+draw.o : draw.c libsx.h libsx_private.h
+
+toggle.o : toggle.c libsx.h libsx_private.h
+
+button.o : button.c libsx.h libsx_private.h
+
+string_entry.o : string_entry.c libsx.h libsx_private.h
+
+libsx.o : libsx.c libsx.h libsx_private.h
+
+misc.o : misc.c libsx.h libsx_private.h
+
+list.o : list.c libsx.h libsx_private.h
+
+scrollbar.o : scrollbar.c libsx.h libsx_private.h
+
+menu.o : menu.c libsx.h libsx_private.h check_mark.h
+
+popups.o : popups.c libsx.h libsx_private.h dialog.h
+
+colormap.o : colormap.c libsx.h libsx_private.h
+
+font.o : font.c libsx.h libsx_private.h
+
+dialog.o : dialog.c dialog.h
+
+dirlist.o : dirlist.c
+
+freq.o : freq.c
+
+grabpix.o : grabpix.c
+
+colorsel.o : colorsel.c
+
+version.o : version.c
+
+
+
+#
+# Demo program objects.
+#
+main.o : main.c main.h libsx.h callbacks.h
+
+callbacks.o : libsx.h callbacks.c
+
+install:
+	mkdirhier $(LIBDIR)
+	install -c -s libsx.a libsx.so $(LIBDIR)
+	mkdirhier $(INCLUDEDIR)
+	cp -f libsx.h $(INCLUDEDIR)
+	mkdirhier $(SHAREDIR)
+	cp -f dialogs/dialogs* $(SHAREDIR)
+
+clean:
+	rm -f *.o *~ dialogs/*~ core libsx.a libsx.so

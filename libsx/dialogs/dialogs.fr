@@ -1,0 +1,34 @@
+#define MAIN_DIAL 0
+Oui
+Annuler 
+Non 
+Okay 
+Annuler
+Reitérer
+#define POPUP_DIAL 6
+Ok
+Annuler
+Question
+#define COLSEL_DIAL 9
+[couleur initiale]               [pourcent]
+Couleur :
+   Mode
+Liste des valeurs RGB
+Saisie
+Approx
+Accepter
+Annuler
+#define FREQ_DIAL 17
+Chemin 
+Filtre 
+Choisir dans la liste ou entrer un nom de fichier
+Fichier
+Aller à
+Home
+CWD 
+Liste
+Cacher
+Annul
+Ok
+#define NUM_DIAL 28
+
